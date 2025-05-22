@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR:wght@100..900&display=swap");
+@import "tailwindcss";
+
+html {
+  font-family: "Noto Sans KR", sans-serif;
+}
+.nanum-brush {
+  font-family: "Nanum Brush Script", cursive;
+}
