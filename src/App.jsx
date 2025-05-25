@@ -1,4 +1,5 @@
 import "./App.css";
+import BottomForm from "./components/BottomForm";
 import TableBox from "./components/TableBox";
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
           이벤트
         </div>
       </div>
-      <span className="absolute top-49 left-62 z-30 text-white text-7xl font-bold">
+      <span className="absolute top-49 left-69 z-30 text-white text-7xl font-bold">
         +
       </span>
 
@@ -94,6 +95,86 @@ function App() {
         </div>
 
         <TableBox />
+
+        <div className="flex mt-10">
+          <div className="w-1/2 bg-gray-300 px-[15px] px-[15px] flex flex-col gap-3 shadow-xl">
+            <p className="text-xl font-bold pt-3">시력 교정 X</p>
+            <video className="" autoPlay muted loop playsInline>
+              <source src="/assets/before.mp4" type="video/mp4" />
+            </video>
+            <p className="text-lg font-bold pb-3">스마일라식 전</p>
+          </div>
+
+          <div className="w-1/2 px-[15px] px-[15px] flex flex-col gap-3 shadow-xl">
+            <p className="text-xl font-bold pt-3 text-red-600">시력 교정 OK</p>
+            <video className="" autoPlay muted loop playsInline>
+              <source src="/assets/after.mp4" type="video/mp4" />
+            </video>
+            <p className="text-lg font-bold pb-3 text-red-600">스마일라식 후</p>
+          </div>
+        </div>
+
+        <div className="bg-blue-900 w-full pt-10 py-5 mt-10">
+          <p className="text-white text-2xl font-bold">
+            우리 병원 <span className="text-yellow-300">특장점 3가지!</span>
+          </p>
+          <div className="p-4">
+            <div className="w-full h-full bg-white p-3 rounded-xl shadow-xl mt-3">
+              <p className="text-blue-600 text-xl font-bold">
+                정품 스마일라식 '비쥬맥스' 3대 보유
+              </p>
+              <img src="/assets/수술장비.png" />
+            </div>
+
+            <div className="w-full h-full bg-white p-3 rounded-xl shadow-xl mt-3">
+              <p className="text-blue-600 text-xl font-bold">
+                정품 수술 인증 보증서 제공
+              </p>
+              <img src="/assets/보증서.png" />
+            </div>
+
+            <div className="w-full h-full bg-white p-3 rounded-xl shadow-xl mt-3">
+              <p className="text-blue-600 text-xl font-bold">
+                롯데타워 11층, 26년 연혁
+              </p>
+              <img src="/assets/map.png" />
+            </div>
+          </div>
+        </div>
+
+        <div className="text-white bg-blue-900 rounded-full mt-13 mx-7 text-xl font-bold p-1.5">
+          <span className="text-yellow-300">지금 신청</span>하면 이 모든 혜택
+          추가 제공!
+        </div>
+
+        <div className="mt-10 flex gap-2 mb-[200px]">
+          <div className="font-bold text-lg bg-blue-100 p-6 shadow-md flex flex-col items-center">
+            <img src="/assets/3d-icon-report.png" className="w-[30px]" />
+            70여 가지
+            <br />
+            정밀검진
+            <br />
+            <span className="text-pink-500">무료 이벤트</span>
+          </div>
+          <div className="font-bold text-lg bg-blue-100 p-6 shadow-md flex flex-col items-center">
+            <img src="/assets/3d-icon-event.png" className="w-[30px]" />전 고객
+            <span className="text-pink-500">
+              이벤트가
+              <br />
+              적용
+            </span>
+          </div>
+          <div className="font-bold text-lg bg-blue-100 p-6 shadow-md flex flex-col items-center">
+            <img src="/assets/3d-icon-check.png" className="w-[30px]" />
+            정품 시력
+            <br />
+            교정 수술
+            <br />
+            <span className="text-pink-500">보증서 제공</span>
+          </div>
+        </div>
+
+        <BottomForm />
       </div>
     </div>
   );
