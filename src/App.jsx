@@ -4,79 +4,63 @@ import TableBox from "./components/TableBox";
 
 function App() {
   return (
-    <div className="w-[400px] min-h-screen mx-auto text-center">
-      {/* 뱃지 */}
-      <span className="inline-block px-3 py-1 text-xs font-semibold text-white bg-blue-700 rounded-full mt-6">
-        event
-      </span>
-
-      <div className="mt-10 space-y-2">
-        <p className="text-2xl nanum-brush">
-          <span className="text-blue-700">비용 부담 때문에 못하신 분 </span>
-          찾습니다!
-        </p>
-        <p className="text-4xl">
-          빠른회복{" "}
-          <span className="font-extrabold text-blue-700">[스마일라식]</span>
-        </p>
-      </div>
-
-      <div className="absolute top-50 left-1/2 -translate-x-1/2 flex items-center z-20">
-        <div className="bg-blue-700 w-[150px] text-amber-200 px-5 py-3 rounded-2xl text-xl font-bold shadow-md">
-          무료
-          <br />
-          정밀검사
+    <div className="w-[400px] mx-auto min-h-screen bg-gray-100">
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="w-[400px] px-4 py-8 text-center">
+          <span className="inline-block px-3 py-1 text-sm font-semibold text-blue-600 bg-blue-100 rounded-full">
+            event
+          </span>
+          <h1 className="mt-4 text-2xl font-bold text-gray-800">
+            스마일라식 이벤트 안내
+          </h1>
+          <p className="mt-2 text-gray-600">
+            비용 걱정 없이 빠른 회복을 경험하세요
+          </p>
         </div>
-        <div className="bg-blue-700 w-[150px] text-amber-200 px-5 py-3 rounded-2xl text-xl font-bold shadow-md whitespace-nowrap">
-          최대 할인
-          <br />
-          이벤트
-        </div>
-      </div>
-      <span className="absolute top-49 left-69 z-30 text-white text-7xl font-bold">
-        +
-      </span>
+      </header>
 
-      {/* 비디오 섹션 */}
-      <div className="relative mt-35 h-[300px] overflow-hidden">
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source
-            src="/assets/KakaoTalk_20250522_161126349.mp4"
-            type="video/mp4"
-          />
-        </video>
-
-        {/* 위쪽 흰색 그라데이션 */}
-        <div className="absolute top-0 left-0 w-full h-full z-10 pointer-events-none bg-gradient-to-b from-white to-transparent" />
-      </div>
-
-      <div className="w-[400px] mx-auto mt-12 text-center">
-        {/* 제목 */}
-        <p className="text-2xl font-normal">
-          <span className="font-extrabold">스마일라식,</span> 이런 분들께
-          추천합니다.
-        </p>
-        {/* 추천 항목 목록 */}
-        <div className="mt-6 space-y-4">
-          {[
-            "안경·렌즈가 불편하신 분",
-            "라식·라섹 부작용이 걱정되시는 분",
-            "안구 건조증이 있으신 분",
-            "빠른 회복을 희망하시는 분",
-          ].map((text, idx) => (
+      <main className="w-[400px] px-4 py-12 space-y-12">
+        {/* Highlights */}
+        <section className="flex flex-col sm:flex-row justify-between gap-4">
+          {["무료 정밀검사", "최대 할인 이벤트"].map((label, idx) => (
             <div
               key={idx}
-              className="flex items-center gap-3 bg-white rounded-lg shadow-sm px-4 py-3 border border-gray-200"
+              className="flex-1 bg-white rounded-lg shadow p-4 text-center"
             >
-              <div className="w-6 h-6 rounded-[4px] bg-gray-700 flex items-center justify-center">
+              <p className="text-base font-semibold text-gray-700">{label}</p>
+            </div>
+          ))}
+        </section>
+
+        {/* Intro Animation */}
+        <section className="relative w-full overflow-hidden rounded-lg shadow">
+          <img
+            src="/assets/자이스수술.gif"
+            alt="자이스 스마일 프로 수술 영상상"
+            className="w-full h-auto block"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/70 to-transparent pointer-events-none" />
+        </section>
+
+        {/* Recommendations */}
+        <section>
+          <h2 className="text-xl font-bold text-gray-800 mb-4">
+            이런 분들께 추천합니다
+          </h2>
+          <ul className="grid grid-cols-2 gap-3">
+            {[
+              "안경·렌즈 불편",
+              "라식·라섹 부작용 걱정",
+              "안구 건조증",
+              "빠른 회복 희망",
+            ].map((text, idx) => (
+              <li
+                key={idx}
+                className="flex items-center gap-2 bg-white rounded-lg shadow p-3"
+              >
                 <svg
-                  className="w-5 h-5 text-white"
+                  className="w-4 h-4 text-blue-500"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={3}
@@ -88,94 +72,151 @@ function App() {
                     d="M5 13l4 4L19 7"
                   />
                 </svg>
-              </div>
-              <p className="text-md text-black">{text}</p>
-            </div>
-          ))}
-        </div>
+                <span className="text-gray-700 text-sm">{text}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
+        {/* Data Table */}
         <TableBox />
 
-        <div className="flex mt-10">
-          <div className="w-1/2 bg-gray-300 px-[15px] px-[15px] flex flex-col gap-3 shadow-xl">
-            <p className="text-xl font-bold pt-3">시력 교정 X</p>
-            <video className="" autoPlay muted loop playsInline>
-              <source src="/assets/before.mp4" type="video/mp4" />
-            </video>
-            <p className="text-lg font-bold pb-3">스마일라식 전</p>
+        {/* Comparison Section */}
+        <section className="bg-white rounded-lg shadow-lg p-4">
+          <h2 className="text-xl font-bold text-gray-800 mb-3 text-center">
+            Before vs After 영상 비교
+          </h2>
+          <div className="flex gap-3">
+            {[
+              {
+                label: "스마일라식 전",
+                src: "/assets/before.mp4",
+                color: "text-gray-800",
+              },
+              {
+                label: "스마일라식 후",
+                src: "/assets/after.mp4",
+                color: "text-red-500",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="flex-1 border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105"
+              >
+                <div className="bg-gray-50 px-3 py-2 border-b border-gray-200">
+                  <span className={`font-semibold ${item.color}`}>
+                    {item.label}
+                  </span>
+                </div>
+                <video
+                  className="w-full h-36 object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                >
+                  <source src={item.src} type="video/mp4" />
+                </video>
+              </div>
+            ))}
           </div>
+        </section>
 
-          <div className="w-1/2 px-[15px] px-[15px] flex flex-col gap-3 shadow-xl">
-            <p className="text-xl font-bold pt-3 text-red-600">시력 교정 OK</p>
-            <video className="" autoPlay muted loop playsInline>
-              <source src="/assets/after.mp4" type="video/mp4" />
-            </video>
-            <p className="text-lg font-bold pb-3 text-red-600">스마일라식 후</p>
+        {/* Features Section */}
+        <section className="bg-gradient-to-r from-yellow-400 to-red-400 rounded-lg shadow-lg p-4 relative">
+          <div className="absolute top-2 right-2 bg-white text-red-500 font-bold px-2 py-1 rounded-full text-xs">
+            HOT!
           </div>
-        </div>
-
-        <div className="bg-blue-900 w-full pt-10 py-5 mt-10">
-          <p className="text-white text-2xl font-bold">
-            우리 병원 <span className="text-yellow-300">특장점 3가지!</span>
-          </p>
-          <div className="p-4">
-            <div className="w-full h-full bg-white p-3 rounded-xl shadow-xl mt-3">
-              <p className="text-blue-600 text-xl font-bold">
-                정품 스마일라식 '비쥬맥스' 3대 보유
-              </p>
-              <img src="/assets/수술장비.png" />
-            </div>
-
-            <div className="w-full h-full bg-white p-3 rounded-xl shadow-xl mt-3">
-              <p className="text-blue-600 text-xl font-bold">
-                정품 수술 인증 보증서 제공
-              </p>
-              <img src="/assets/보증서.png" />
-            </div>
-
-            <div className="w-full h-full bg-white p-3 rounded-xl shadow-xl mt-3">
-              <p className="text-blue-600 text-xl font-bold">
-                롯데타워 11층, 26년 연혁
-              </p>
-              <img src="/assets/map.png" />
-            </div>
+          <h2 className="text-xl font-bold text-white mb-4">
+            우리 병원 특장점 3가지
+          </h2>
+          <div className="grid grid-cols-1 gap-3">
+            {[
+              {
+                title: '국내 최초 정품 "비쥬맥스" 8대 보유',
+                subtitle:
+                  "업계 최고 사양의 레이저 장비 보유로 정확·안전한 시술 가능",
+                icon: "/assets/3d-smile.png",
+              },
+              {
+                title: "특별한 DNA 검사 (자체 DNA 연구소 보유)",
+                subtitle:
+                  "개인 맞춤형 유전 정보 분석으로 최적의 시술 플랜 제공",
+                icon: "/assets/3d-dna.png",
+              },
+              {
+                title: "콜라겐 교차 결합 크로스링킹 (각막강화술) 보유",
+                subtitle: "시술 후 각막 강도를 높여 안정성을 극대화",
+                icon: "/assets/3d-cross.png",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="flex items-start gap-3 bg-white rounded-lg p-4 shadow-md"
+              >
+                {/* 아이콘 크기 조정 */}
+                <img
+                  src={item.icon}
+                  alt={item.title}
+                  className="w-15 h-15 mt-1"
+                />
+                <div>
+                  <div className="text-gray-800 text-sm font-semibold">
+                    {item.title}
+                  </div>
+                  <div className="text-gray-600 text-xs mt-1">
+                    {item.subtitle}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
+        </section>
 
-        <div className="text-white bg-blue-900 rounded-full mt-13 mx-7 text-xl font-bold p-1.5">
-          <span className="text-yellow-300">지금 신청</span>하면 이 모든 혜택
-          추가 제공!
-        </div>
+        {/* CTA & Summary Cards */}
+        <section className="space-y-6">
+          <button className="w-full py-3 bg-blue-600 text-white font-bold rounded-lg shadow hover:bg-blue-700 transition text-base">
+            지금 신청하고 혜택 받기
+          </button>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-[180px]">
+            {[
+              {
+                icon: "/assets/3d-icon-report.png",
+                title: "70여 가지 정밀검진",
+                subtitle: "무료 이벤트",
+              },
+              {
+                icon: "/assets/3d-icon-event.png",
+                title: "전 고객 이벤트 적용",
+              },
+              {
+                icon: "/assets/3d-icon-check.png",
+                title: "정품 시력 교정 수술",
+                subtitle: "보증서 제공",
+              },
+            ].map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-lg shadow p-3 text-center"
+              >
+                <img
+                  src={item.icon}
+                  alt={item.title}
+                  className="w-6 h-6 mx-auto mb-1"
+                />
+                <p className="font-semibold text-gray-800 text-sm">
+                  {item.title}
+                </p>
+                {item.subtitle && (
+                  <span className="text-pink-500 text-xs">{item.subtitle}</span>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
 
-        <div className="mt-10 flex gap-2 mb-[200px]">
-          <div className="font-bold text-lg bg-blue-100 p-6 shadow-md flex flex-col items-center">
-            <img src="/assets/3d-icon-report.png" className="w-[30px]" />
-            70여 가지
-            <br />
-            정밀검진
-            <br />
-            <span className="text-pink-500">무료 이벤트</span>
-          </div>
-          <div className="font-bold text-lg bg-blue-100 p-6 shadow-md flex flex-col items-center">
-            <img src="/assets/3d-icon-event.png" className="w-[30px]" />전 고객
-            <span className="text-pink-500">
-              이벤트가
-              <br />
-              적용
-            </span>
-          </div>
-          <div className="font-bold text-lg bg-blue-100 p-6 shadow-md flex flex-col items-center">
-            <img src="/assets/3d-icon-check.png" className="w-[30px]" />
-            정품 시력
-            <br />
-            교정 수술
-            <br />
-            <span className="text-pink-500">보증서 제공</span>
-          </div>
-        </div>
-
-        <BottomForm />
-      </div>
+      <BottomForm />
     </div>
   );
 }
