@@ -8,11 +8,10 @@ const BottomForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = {
-      name,
-      age,
-      phone,
-    };
+    const formData = new URLSearchParams();
+    formData.append("name", name);
+    formData.append("age", age);
+    formData.append("phone", phone);
 
     try {
       const res = await fetch(
@@ -20,14 +19,16 @@ const BottomForm = () => {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: JSON.stringify(formData),
+          body: formData.toString(),
         }
       );
 
-      const result = await res.json();
-      if (result.result === "success") {
+      const resultText = await res.text(); // ← 응답을 JSON 대신 text로 받아야 안전
+      console.log("응답 결과:", resultText);
+
+      if (res.ok && resultText.includes("success")) {
         alert("신청이 완료되었습니다!");
         setName("");
         setAge("");
