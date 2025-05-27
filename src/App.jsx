@@ -174,7 +174,7 @@ function App() {
 
         {/* CTA & Summary Cards */}
         <section className="space-y-6">
-          <button className="w-full py-3 bg-blue-600 text-white font-bold rounded-lg shadow hover:bg-blue-700 transition text-base">
+          <button className="w-full py-3 bg-blue-400 text-white font-bold rounded-lg shadow hover:bg-blue-500 transition text-base">
             지금 신청하고 혜택 받기
           </button>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-[180px]">
