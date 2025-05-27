@@ -15,7 +15,7 @@ const BottomForm = () => {
 
     try {
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbzh_0Fxn7zNvrll1xMtR8sfr4vcE-IxJCJqzdO3uq0gq7CIkEvoivC18bTGnPZyusMZ1Q/exec",
+        "https://script.google.com/macros/s/AKfycbzJc2eZhVYJJO6JfWdmg26JGhT5xM4x-SAPrbmsQLtMmLe01XvuQoQEpBHh-sCX5yzkNg/exec",
         {
           method: "POST",
           headers: {
