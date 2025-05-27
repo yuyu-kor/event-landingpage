@@ -5,8 +5,32 @@ const BottomForm = () => {
   const [age, setAge] = useState("");
   const [phone, setPhone] = useState("");
 
+  const handlePhoneChange = (e) => {
+    const input = e.target.value.replace(/\D/g, ""); // 숫자만 남기기
+
+    let formatted = input;
+    if (input.length < 4) {
+      // 그대로
+      formatted = input;
+    } else if (input.length < 8) {
+      formatted = `${input.slice(0, 3)}-${input.slice(3)}`;
+    } else {
+      formatted = `${input.slice(0, 3)}-${input.slice(3, 7)}-${input.slice(
+        7,
+        11
+      )}`;
+    }
+
+    setPhone(formatted);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!name.trim() || !age.trim() || !phone.trim()) {
+      alert("모든 항목을 입력해주세요.");
+      return;
+    }
 
     const formData = new URLSearchParams();
     formData.append("name", name);
@@ -68,7 +92,7 @@ const BottomForm = () => {
           type="tel"
           placeholder="연락처"
           value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+          onChange={handlePhoneChange}
           className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:outline-none"
         />
 

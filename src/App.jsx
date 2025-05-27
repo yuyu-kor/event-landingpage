@@ -123,11 +123,11 @@ function App() {
         </section>
 
         {/* Features Section */}
-        <section className="bg-gradient-to-r from-yellow-400 to-red-400 rounded-lg shadow-lg p-4 relative">
-          <div className="absolute top-2 right-2 bg-white text-red-500 font-bold px-2 py-1 rounded-full text-xs">
+        <section className="bg-gradient-to-r from-blue-100 to-blue-50 rounded-lg shadow-lg p-4 relative">
+          <div className="absolute top-2 right-2 bg-red-100 text-red-600 font-semibold px-2 py-1 rounded-full text-xs">
             HOT!
           </div>
-          <h2 className="text-xl font-bold text-white mb-4">
+          <h2 className="text-xl font-bold text-gray-800 mb-4">
             우리 병원 특장점 3가지
           </h2>
           <div className="grid grid-cols-1 gap-3">
@@ -152,19 +152,18 @@ function App() {
             ].map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-3 bg-white rounded-lg p-4 shadow-md"
+                className="flex items-start gap-3 bg-white rounded-lg p-4 shadow-sm"
               >
-                {/* 아이콘 크기 조정 */}
                 <img
                   src={item.icon}
                   alt={item.title}
-                  className="w-15 h-15 mt-1"
+                  className="w-14 h-14 mt-1"
                 />
                 <div>
                   <div className="text-gray-800 text-sm font-semibold">
                     {item.title}
                   </div>
-                  <div className="text-gray-600 text-xs mt-1">
+                  <div className="text-gray-600 text-xs mt-1 leading-snug">
                     {item.subtitle}
                   </div>
                 </div>
