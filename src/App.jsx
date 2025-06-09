@@ -90,12 +90,12 @@ function App() {
             {[
               {
                 label: "스마일라식 전",
-                src: "/assets/before.mp4",
+                src: "/assets/before1.mp4",
                 color: "text-gray-800",
               },
               {
                 label: "스마일라식 후",
-                src: "/assets/after.mp4",
+                src: "/assets/after1.mp4",
                 color: "text-red-500",
               },
             ].map((item, idx) => (
