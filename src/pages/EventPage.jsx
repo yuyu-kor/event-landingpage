@@ -22,7 +22,7 @@ export default function EventPage() {
             to="/event2"
             className={`px-4 py-1 rounded-full text-sm font-semibold transition-transform duration-200 ${
               location.pathname === "/event2"
-                ? "text-blue-600 bg-blue-100"
+                ? "text-green-800 bg-green-400"
                 : "text-gray-400 bg-gray-100"
             } hover:scale-105`}
           >
@@ -49,14 +49,14 @@ export default function EventPage() {
           />
           <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white text-center gap-4 px-6">
             <p className="text-xl font-bold">
-              모우림은 고객후기와 소개가 증명합니다
+              "다들 이벤트만 보고 결정하는 거 아니에요?"
             </p>
             <p>
-              이미 3000명 넘게 수술을 받으셨습니다.
+              이미 3,000명 이상이 수술을 경험했습니다
               <br />
               하지만, 중요한 건 이벤트만 보고
               <br />
-              판단하시면 안 됩니다..
+              판단하시면 안 됩니다
             </p>
             <p>
               직접 눈으로 확인하고,
@@ -83,7 +83,7 @@ export default function EventPage() {
               모든 절차는 의료진이 집도합니다
             </p>
             <p className="text-green-600 text-lg font-bold">
-              모우림은 확실하게 이야기 합니다
+              저희는 확실하게 이야기 합니다
             </p>
             <p className="text-sm leading-relaxed">
               1. 손님이 헤어라인 교정받다가 직원이 된 스토리
@@ -100,13 +100,11 @@ export default function EventPage() {
           </div>
         </section>
 
-        {/* 모우림의 리얼 후기 */}
+        {/* 모우림의 리얼 후기
         <section className="mt-9 px-4 text-center space-y-2">
-          <p className="font-semibold text-base text-green-600">
-            모우림의 리얼 후기
-          </p>
+          <p className="font-semibold text-base text-green-600">리얼 후기</p>
           <p className="text-sm text-green-500">
-            특별함을 만드는 모우림을 만나보세요
+            일상 속 특별한 변화, 지금 만나보세요
           </p>
           <div className="aspect-video w-full rounded-lg overflow-hidden mt-4">
             <iframe
@@ -118,19 +116,19 @@ export default function EventPage() {
               allowFullScreen
             ></iframe>
           </div>
-        </section>
+        </section> */}
 
         {/* 이벤트 신청란 */}
         <section className="flex flex-col gap-4 items-center justify-center mt-14 px-4">
           <div className="inline-block bg-green-600 rounded-full px-8 py-2 text-white text-lg font-bold shadow-sm">
-            모우림 이벤트 신청란
+            이벤트 신청란
           </div>
           <div className="text-center border-2 border-green-500 rounded-lg px-4 py-4 text-sm text-gray-700 leading-relaxed bg-white">
-            수술과 케어에 대한 자신감으로
+            수술, 그 이상을 책임집니다.
             <br />
-            이벤트 상담신청자에 한하여,
+            이벤트 상담 신청자에 한해,
             <br />
-            나에게 맞는 디자인 검사 및 상담을 제공합니다
+            1:1 맞춤 디자인 검사와 전문 상담을 제공합니다.
           </div>
           <form className="w-full mt-2 space-y-4">
             {/* 성함 */}
