@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
+import EventForm from "../components/EventForm";
 
 export default function EventPage() {
   const location = useLocation();
@@ -130,111 +131,15 @@ export default function EventPage() {
             <br />
             1:1 맞춤 디자인 검사와 전문 상담을 제공합니다.
           </div>
-          <form className="w-full mt-2 space-y-4">
-            {/* 성함 */}
-            <div className="flex flex-col gap-1">
-              <label
-                htmlFor="name"
-                className="text-sm font-semibold text-gray-700"
-              >
-                성함
-              </label>
-              <input
-                type="text"
-                id="name"
-                placeholder="홍길동"
-                className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
-              />
-            </div>
-
-            {/* 연락처 */}
-            <div className="flex flex-col gap-1">
-              <label
-                htmlFor="phone"
-                className="text-sm font-semibold text-gray-700"
-              >
-                연락처
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                placeholder="010-1234-5678"
-                className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
-              />
-            </div>
-
-            {/* 연령대 */}
-            <div className="flex flex-col gap-1">
-              <label
-                htmlFor="age"
-                className="text-sm font-semibold text-gray-700"
-              >
-                연령대
-              </label>
-              <select
-                id="age"
-                className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
-              >
-                <option value="">선택해주세요</option>
-                <option value="10">10대</option>
-                <option value="20">20대</option>
-                <option value="30">30대</option>
-                <option value="40">40대</option>
-                <option value="50">50대 이상</option>
-              </select>
-            </div>
-
-            {/* 관심 진료 항목 */}
-            <div className="flex flex-col gap-1">
-              <label
-                htmlFor="interest"
-                className="text-sm font-semibold text-gray-700"
-              >
-                관심 있는 진료 항목
-              </label>
-              <select
-                id="interest"
-                className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
-              >
-                <option value="">선택해주세요</option>
-                <option value="앞머리">앞머리</option>
-                <option value="정수리">정수리</option>
-                <option value="이마">이마</option>
-                <option value="기타">기타</option>
-              </select>
-            </div>
-
-            {/* 상담 희망일 */}
-            <div className="flex flex-col gap-1">
-              <label
-                htmlFor="consultDate"
-                className="text-sm font-semibold text-gray-700"
-              >
-                상담 희망일
-              </label>
-              <input
-                type="datetime-local"
-                id="consultDate"
-                className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
-              />
-            </div>
-
-            {/* 제출 버튼 */}
-            <button
-              type="submit"
-              className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-md transition duration-200"
-            >
-              상담 신청하기
-            </button>
-          </form>
+          <EventForm />
         </section>
 
-        {/* 지도 */}
-        <section className="mt-8 px-4 pb-12">
+        {/* 오시는 길 */}
+        <section className="mt-14 px-4 pb-12 text-center space-y-4">
           <img
-            src="/assets/event2_map.png"
-            alt="지도"
-            className="rounded-md shadow-sm"
+            src="/assets/event2_detail.png"
+            alt="오시는 길"
+            className="w-full max-w-md mx-auto rounded-md shadow-md"
           />
         </section>
       </main>
