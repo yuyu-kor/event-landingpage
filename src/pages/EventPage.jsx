@@ -44,7 +44,7 @@ export default function EventPage() {
       <main>
         <section className="relative h-[400px]">
           <img
-            src="/assets/event2_clinic.png"
+            src="/assets/event2_doctor.png"
             alt="병원사진"
             className="w-full h-full object-cover"
           />
