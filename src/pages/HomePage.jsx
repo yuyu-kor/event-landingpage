@@ -1,6 +1,7 @@
 import BottomForm from "../components/BottomForm";
 import TableBox from "../components/TableBox";
 import { Link, useLocation } from "react-router-dom";
+import EventSwitcherSegment from "../components/EventSwitcherSegment";
 
 function HomePage() {
   const location = useLocation();
@@ -9,29 +10,7 @@ function HomePage() {
     <div className="w-[400px] mx-auto min-h-screen bg-gray-100">
       <header className="bg-white shadow-sm">
         <div className="w-[400px] px-4 py-8 text-center">
-          <Link
-            to="/"
-            className={`mr-4 inline-block px-3 py-1 text-sm font-semibold rounded-full transition-transform duration-200 cursor-pointer
-              ${
-                location.pathname === "/"
-                  ? "text-blue-600 bg-blue-100"
-                  : "text-gray-400 bg-gray-100"
-              } hover:scale-105`}
-          >
-            event1
-          </Link>
-
-          <Link
-            to="/event2"
-            className={`mr-2 inline-block px-3 py-1 text-sm font-semibold rounded-full transition-transform duration-200 cursor-pointer
-              ${
-                location.pathname === "/event2"
-                  ? "text-blue-600 bg-blue-100"
-                  : "text-gray-400 bg-gray-100"
-              } hover:scale-105`}
-          >
-            event2
-          </Link>
+          <EventSwitcherSegment />
 
           <h1 className="mt-4 text-2xl font-bold text-gray-800">
             스마일라식 이벤트 안내

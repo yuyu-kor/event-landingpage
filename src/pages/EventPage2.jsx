@@ -1,35 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
 import EventForm from "../components/EventForm";
+import EventSwitcherSegment from "../components/EventSwitcherSegment";
 
-export default function EventPage() {
+export default function EventPage2() {
   const location = useLocation();
 
   return (
     <div className="w-full max-w-[480px] mx-auto bg-gray-50 min-h-screen text-gray-800">
       {/* 네비게이션 */}
-      <header className="bg-white shadow">
-        <div className="flex justify-center gap-4 px-4 py-4">
-          <Link
-            to="/"
-            className={`px-4 py-1 rounded-full text-sm font-semibold transition-transform duration-200 ${
-              location.pathname === "/"
-                ? "text-blue-600 bg-blue-100"
-                : "text-gray-400 bg-gray-100"
-            } hover:scale-105`}
-          >
-            event1
-          </Link>
-          <Link
-            to="/event2"
-            className={`px-4 py-1 rounded-full text-sm font-semibold transition-transform duration-200 ${
-              location.pathname === "/event2"
-                ? "text-green-800 bg-green-400"
-                : "text-gray-400 bg-gray-100"
-            } hover:scale-105`}
-          >
-            event2
-          </Link>
-        </div>
+      <header className="bg-white shadow px-4 py-8">
+        <EventSwitcherSegment />
+
         <div className="text-center px-4 pb-6">
           <h1 className="text-2xl font-bold text-gray-800">
             헤어라인 이벤트 안내
