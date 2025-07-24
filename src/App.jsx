@@ -2,6 +2,7 @@ import HomePage from "./pages/HomePage";
 import EventPage2 from "./pages/EventPage2";
 import EventPage3 from "./pages/EventPage3";
 import { Route, Routes } from "react-router-dom";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 function App() {
   return (

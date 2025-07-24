@@ -6,7 +6,7 @@ function EventSwitcherToggle() {
   const tabs = [
     { label: "스마일라식", path: "/" },
     { label: "헤어라인교정", path: "/EventPage2" },
-    { label: "피부과", path: "/EventPage3" },
+    { label: "스킨케어", path: "/EventPage3" },
   ];
 
   return (

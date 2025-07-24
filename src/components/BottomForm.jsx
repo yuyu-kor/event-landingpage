@@ -69,7 +69,7 @@ const BottomForm = () => {
   return (
     <div className="fixed bottom-0 inset-x-0 flex justify-center z-50">
       <form
-        className="w-[400px] bg-white rounded-t-2xl shadow-xl p-6 space-y-4"
+        className="w-full max-w-[480px] bg-white rounded-t-2xl shadow-xl p-6 space-y-4"
         onSubmit={handleSubmit}
       >
         <div className="grid grid-cols-2 gap-3">

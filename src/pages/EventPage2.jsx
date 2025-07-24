@@ -11,7 +11,7 @@ export default function EventPage2() {
       <header className="bg-white shadow px-4 py-8">
         <EventSwitcherSegment />
 
-        <div className="text-center px-4 pb-6">
+        <div className="text-center px-4 pb-6 mt-4">
           <h1 className="text-2xl font-bold text-gray-800">
             헤어라인 이벤트 안내
           </h1>
