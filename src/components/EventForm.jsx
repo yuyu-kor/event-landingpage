@@ -1,7 +1,12 @@
 import { useRef } from "react";
+import { useLanguageStore } from "../stores/useLanguageStore";
+import { event2Texts } from "../i18n/texts2";
 
 export default function EventForm() {
   const formRef = useRef(null);
+  const language = useLanguageStore((state) => state.language);
+
+  const t = event2Texts.event2Form;
 
   const handleSubmit = (e) => {
     const form = formRef.current;
@@ -11,9 +16,9 @@ export default function EventForm() {
 
     if (!name || !phone || !age) {
       e.preventDefault();
-      alert("성함, 연락처, 연령대를 모두 입력해주세요.");
+      alert(t.alerts.incomplete[language]);
     } else {
-      alert("상담 신청이 완료되었습니다!");
+      alert(t.alerts.success[language]);
     }
   };
 
@@ -30,13 +35,13 @@ export default function EventForm() {
         {/* 성함 */}
         <div className="flex flex-col gap-1">
           <label htmlFor="name" className="text-sm font-semibold text-gray-700">
-            성함
+            {t.labels.name[language]}
           </label>
           <input
             type="text"
             id="name"
             name="name"
-            placeholder="홍길동"
+            placeholder={t.placeholders.name[language]}
             className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
@@ -47,13 +52,13 @@ export default function EventForm() {
             htmlFor="phone"
             className="text-sm font-semibold text-gray-700"
           >
-            연락처
+            {t.labels.phone[language]}
           </label>
           <input
             type="tel"
             id="phone"
             name="phone"
-            placeholder="01012345678"
+            placeholder={t.placeholders.phone[language]}
             className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
           />
         </div>
@@ -61,19 +66,19 @@ export default function EventForm() {
         {/* 연령대 */}
         <div className="flex flex-col gap-1">
           <label htmlFor="age" className="text-sm font-semibold text-gray-700">
-            연령대
+            {t.labels.age[language]}
           </label>
           <select
             id="age"
             name="age"
             className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
           >
-            <option value="">선택해주세요</option>
-            <option value="10">10대</option>
-            <option value="20">20대</option>
-            <option value="30">30대</option>
-            <option value="40">40대</option>
-            <option value="50">50대 이상</option>
+            <option value="">{t.placeholders.ageSelect[language]}</option>
+            {Object.entries(t.ageOptions).map(([key, label]) => (
+              <option key={key} value={key}>
+                {label[language]}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -83,18 +88,19 @@ export default function EventForm() {
             htmlFor="interest"
             className="text-sm font-semibold text-gray-700"
           >
-            관심 있는 진료 항목
+            {t.labels.interest[language]}
           </label>
           <select
             id="interest"
             name="interest"
             className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400"
           >
-            <option value="">선택해주세요</option>
-            <option value="앞머리">앞머리</option>
-            <option value="정수리">정수리</option>
-            <option value="이마">이마</option>
-            <option value="기타">기타</option>
+            <option value="">{t.placeholders.interestSelect[language]}</option>
+            {Object.entries(t.interestOptions).map(([key, label]) => (
+              <option key={key} value={key}>
+                {label[language]}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -104,7 +110,7 @@ export default function EventForm() {
             htmlFor="consultDate"
             className="text-sm font-semibold text-gray-700"
           >
-            상담 희망일
+            {t.labels.consultDate[language]}
           </label>
           <input
             type="datetime-local"
@@ -119,7 +125,7 @@ export default function EventForm() {
           type="submit"
           className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded-md transition duration-200"
         >
-          상담 신청하기
+          {t.submitButton[language]}
         </button>
       </form>
 

@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { texts } from "../i18n/texts";
+import { useLanguageStore } from "../stores/useLanguageStore";
 
 const BottomForm = () => {
+  const language = useLanguageStore((state) => state.language);
+
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [phone, setPhone] = useState("");
@@ -10,7 +14,6 @@ const BottomForm = () => {
 
     let formatted = input;
     if (input.length < 4) {
-      // 그대로
       formatted = input;
     } else if (input.length < 8) {
       formatted = `${input.slice(0, 3)}-${input.slice(3)}`;
@@ -28,7 +31,7 @@ const BottomForm = () => {
     e.preventDefault();
 
     if (!name.trim() || !age.trim() || !phone.trim()) {
-      alert("모든 항목을 입력해주세요.");
+      alert(texts.bottomForm.alertIncomplete[language]);
       return;
     }
 
@@ -49,20 +52,20 @@ const BottomForm = () => {
         }
       );
 
-      const resultText = await res.text(); // ← 응답을 JSON 대신 text로 받아야 안전
+      const resultText = await res.text();
       console.log("응답 결과:", resultText);
 
       if (res.ok && resultText.includes("success")) {
-        alert("신청이 완료되었습니다!");
+        alert(texts.bottomForm.alertSuccess[language]);
         setName("");
         setAge("");
         setPhone("");
       } else {
-        alert("제출 실패. 다시 시도해주세요.");
+        alert(texts.bottomForm.alertFailure[language]);
       }
     } catch (err) {
       console.error("에러 발생:", err);
-      alert("전송 중 오류가 발생했습니다.");
+      alert(texts.bottomForm.alertError[language]);
     }
   };
 
@@ -75,14 +78,14 @@ const BottomForm = () => {
         <div className="grid grid-cols-2 gap-3">
           <input
             type="text"
-            placeholder="이름"
+            placeholder={texts.bottomForm.namePlaceholder[language]}
             value={name}
             onChange={(e) => setName(e.target.value)}
             className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:outline-none"
           />
           <input
             type="text"
-            placeholder="나이"
+            placeholder={texts.bottomForm.agePlaceholder[language]}
             value={age}
             onChange={(e) => setAge(e.target.value)}
             className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:outline-none"
@@ -90,7 +93,7 @@ const BottomForm = () => {
         </div>
         <input
           type="tel"
-          placeholder="연락처"
+          placeholder={texts.bottomForm.phonePlaceholder[language]}
           value={phone}
           onChange={handlePhoneChange}
           className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:outline-none"
@@ -100,7 +103,7 @@ const BottomForm = () => {
           type="submit"
           className="w-full py-3 bg-gradient-to-r from-blue-600 to-teal-400 text-white font-bold rounded-lg shadow hover:from-blue-700 hover:to-teal-500 transition"
         >
-          이벤트 신청하기
+          {texts.bottomForm.submitButton[language]}
         </button>
       </form>
     </div>

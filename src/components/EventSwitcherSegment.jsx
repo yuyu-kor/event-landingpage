@@ -1,12 +1,16 @@
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import { useLanguageStore } from "../stores/useLanguageStore";
+import { texts } from "../i18n/texts";
 
 function EventSwitcherToggle() {
   const location = useLocation();
+  const language = useLanguageStore((state) => state.language);
+  const t = texts.eventTabs;
 
   const tabs = [
-    { label: "스마일라식", path: "/" },
-    { label: "헤어라인교정", path: "/EventPage2" },
-    { label: "스킨케어", path: "/EventPage3" },
+    { label: t.smile[language], path: "/" },
+    { label: t.hairline[language], path: "/EventPage2" },
+    { label: t.skincare[language], path: "/EventPage3" },
   ];
 
   return (
