@@ -161,6 +161,30 @@ export const event3Texts = {
       ru: `Индивидуальное решение под ваше лицо.
   Анализируем контуры, текстуру кожи и общий образ —
   и предлагаем точное лечение.`,
+      alertIncomplete: {
+        ko: "이름과 연락처를 모두 입력해주세요.",
+        en: "Please fill in both name and phone number.",
+        zh: "请填写姓名和电话号码。",
+        ru: "Пожалуйста, заполните имя и номер телефона.",
+      },
+      alertSuccess: {
+        ko: "상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.",
+        en: "Your consultation request has been submitted. We will contact you soon.",
+        zh: "您的咨询申请已提交，我们会尽快与您联系。",
+        ru: "Ваша заявка на консультацию отправлена. Мы свяжемся с вами в ближайшее время.",
+      },
+      alertFailure: {
+        ko: "신청에 실패했습니다. 다시 시도해주세요.",
+        en: "Submission failed. Please try again.",
+        zh: "提交失败，请重试。",
+        ru: "Ошибка отправки. Попробуйте еще раз.",
+      },
+      alertError: {
+        ko: "오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
+        en: "An error occurred. Please try again later.",
+        zh: "发生错误，请稍后重试。",
+        ru: "Произошла ошибка. Попробуйте позже.",
+      },
     },
     fields: {
       name: {

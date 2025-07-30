@@ -28,10 +28,13 @@ export default function EventForm() {
         ref={formRef}
         onSubmit={handleSubmit}
         method="POST"
-        action="https://script.google.com/macros/s/AKfycbwOYMVJ2EoarcMprTyA2inICNF31tO2y8sqjpQDy4LDcCsuFjzloLqw-4Lexfy6x4X3QQ/exec"
+        action="https://script.google.com/macros/s/AKfycby_70SUUYu5zsPcK5FKNXptDKiGO-Ji4Npzo5d_Cxtez6Z9kCabhVbpB1w3zuunpCXa/exec"
         target="hidden_iframe"
         className="w-full mt-2 space-y-4"
       >
+        {/* 시트 이름 지정 */}
+        <input type="hidden" name="sheetName" value="헤어라인교정" />
+
         {/* 성함 */}
         <div className="flex flex-col gap-1">
           <label htmlFor="name" className="text-sm font-semibold text-gray-700">

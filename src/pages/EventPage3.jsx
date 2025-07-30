@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import EventSwitcherSegment from "../components/EventSwitcherSegment";
 import { Carousel } from "react-responsive-carousel";
 import { useLanguageStore } from "../stores/useLanguageStore";
@@ -7,6 +7,65 @@ import { event3Texts } from "../i18n/texts3";
 function EventPage3() {
   const language = useLanguageStore((state) => state.language);
   const t = event3Texts;
+
+  // ✅ 폼 상태
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [interest, setInterest] = useState("");
+  const [date, setDate] = useState("");
+
+  // ✅ 연락처 숫자만 입력
+  const handlePhoneChange = (e) => {
+    const onlyNumbers = e.target.value.replace(/\D/g, "");
+    setPhone(onlyNumbers);
+  };
+
+  // ✅ 폼 전송
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!name.trim() || !phone.trim()) {
+      alert(t.form.alertIncomplete[language]);
+      return;
+    }
+
+    const formData = new URLSearchParams();
+    formData.append("name", name);
+    formData.append("phone", phone);
+    formData.append("interest", interest);
+    formData.append("date", date);
+    formData.append("sheetName", "스킨케어");
+
+    try {
+      const res = await fetch(
+        "https://script.google.com/macros/s/AKfycby_70SUUYu5zsPcK5FKNXptDKiGO-Ji4Npzo5d_Cxtez6Z9kCabhVbpB1w3zuunpCXa/exec",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: formData.toString(),
+        }
+      );
+
+      const text = await res.text();
+      console.log("응답 원본:", text);
+
+      if (res.ok && text.includes("success")) {
+        setName("");
+        setPhone("");
+        setInterest("");
+        setDate("");
+
+        setTimeout(() => {
+          alert(t.form.alertSuccess[language]);
+        }, 100);
+      } else {
+        alert(t.form.alertFailure[language]);
+      }
+    } catch (err) {
+      console.error("에러 발생:", err);
+      alert(t.form.alertError[language]);
+    }
+  };
 
   return (
     <div className="w-full max-w-[480px] mx-auto min-h-screen bg-gray-50 text-gray-800">
@@ -148,7 +207,7 @@ function EventPage3() {
             <p className="text-sm text-gray-600 leading-relaxed text-balance whitespace-pre-line">
               {t.form.description[language]}
             </p>
-            <form className="space-y-4 text-left">
+            <form className="space-y-4 text-left" onSubmit={handleSubmit}>
               {/* 이름 */}
               <div>
                 <label className="block text-sm text-gray-700 mb-1">
@@ -156,6 +215,8 @@ function EventPage3() {
                 </label>
                 <input
                   type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   placeholder={t.form.fields.name.placeholder[language]}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
@@ -168,7 +229,8 @@ function EventPage3() {
                 </label>
                 <input
                   type="tel"
-                  pattern="[0-9]{10,11}"
+                  value={phone}
+                  onChange={handlePhoneChange}
                   placeholder={t.form.fields.phone.placeholder[language]}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
@@ -181,6 +243,8 @@ function EventPage3() {
                 </label>
                 <input
                   type="text"
+                  value={interest}
+                  onChange={(e) => setInterest(e.target.value)}
                   placeholder={t.form.fields.interest.placeholder[language]}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
@@ -193,6 +257,8 @@ function EventPage3() {
                 </label>
                 <input
                   type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
               </div>

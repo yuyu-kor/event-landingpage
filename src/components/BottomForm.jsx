@@ -27,9 +27,12 @@ const BottomForm = () => {
     formData.append("age", age);
     formData.append("phone", phone);
 
+    // 시트 이름 지정 (여기가 핵심)
+    formData.append("sheetName", "스마일라식");
+
     try {
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbxd4qlIWy4ENlVgqSZJRjlIMOr18pHyNRioPHloFqPm3rHv_rITDxZljg3H9QfM3WGv/exec",
+        "https://script.google.com/macros/s/AKfycby_70SUUYu5zsPcK5FKNXptDKiGO-Ji4Npzo5d_Cxtez6Z9kCabhVbpB1w3zuunpCXa/exec",
         {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
