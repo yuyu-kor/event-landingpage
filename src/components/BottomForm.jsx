@@ -10,21 +10,8 @@ const BottomForm = () => {
   const [phone, setPhone] = useState("");
 
   const handlePhoneChange = (e) => {
-    const input = e.target.value.replace(/\D/g, ""); // 숫자만 남기기
-
-    let formatted = input;
-    if (input.length < 4) {
-      formatted = input;
-    } else if (input.length < 8) {
-      formatted = `${input.slice(0, 3)}-${input.slice(3)}`;
-    } else {
-      formatted = `${input.slice(0, 3)}-${input.slice(3, 7)}-${input.slice(
-        7,
-        11
-      )}`;
-    }
-
-    setPhone(formatted);
+    const input = e.target.value.replace(/\D/g, ""); // 숫자만
+    setPhone(input);
   };
 
   const handleSubmit = async (e) => {
