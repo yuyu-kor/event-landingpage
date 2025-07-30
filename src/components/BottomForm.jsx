@@ -42,20 +42,25 @@ const BottomForm = () => {
 
     try {
       const res = await fetch(
-        "https://script.google.com/macros/s/AKfycbzJc2eZhVYJJO6JfWdmg26JGhT5xM4x-SAPrbmsQLtMmLe01XvuQoQEpBHh-sCX5yzkNg/exec",
+        "https://script.google.com/macros/s/AKfycbxd4qlIWy4ENlVgqSZJRjlIMOr18pHyNRioPHloFqPm3rHv_rITDxZljg3H9QfM3WGv/exec",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: formData.toString(),
         }
       );
 
-      const resultText = await res.text();
-      console.log("응답 결과:", resultText);
+      const text = await res.text();
+      console.log("응답:", text);
 
-      if (res.ok && resultText.includes("success")) {
+      let result;
+      try {
+        result = JSON.parse(text);
+      } catch {
+        result = {};
+      }
+
+      if (res.ok && result.result === "success") {
         alert(texts.bottomForm.alertSuccess[language]);
         setName("");
         setAge("");
