@@ -9,6 +9,8 @@ export default function EventPage2() {
   const location = useLocation();
   const language = useLanguageStore((state) => state.language);
 
+  const t = event2Texts;
+
   return (
     <div className="w-full max-w-[480px] mx-auto bg-gray-50 min-h-screen text-gray-800">
       {/* 네비게이션 */}
@@ -95,35 +97,25 @@ export default function EventPage2() {
         <section className="mt-12 px-4 pb-10">
           {/* 혜택 리스트 */}
           <div className="grid grid-cols-2 gap-3 mb-8">
-            {[
-              { no: "1", title: "헤어라인&모발 디자인 상담비용 면제" },
-              { no: "2", title: "메조 테라피 2회 제공" },
-              { no: "3", title: "EGF 샴푸 제공" },
-              { no: "4", title: "토닉 100ML 제공" },
-            ].map((item) => (
+            {t.benefitsSection.benefits.map((item) => (
               <div
                 key={item.no}
                 className="bg-white border border-green-200 rounded-xl shadow-sm p-4 flex flex-col items-center text-center"
               >
                 {/* 뱃지 */}
                 <span className="bg-green-600 text-white px-3 py-0.5 rounded-full text-[11px] font-semibold mb-2 shadow-sm">
-                  혜택 {item.no}
+                  {`혜택 ${item.no}`}
                 </span>
                 <span className="text-xs font-medium text-gray-800 leading-snug">
-                  {item.title}
+                  {item.title[language]}
                 </span>
               </div>
             ))}
           </div>
 
           {/* 안내 문구 */}
-          <div className="bg-green-50 border border-green-100 rounded-lg p-4 text-[12px] text-gray-700 leading-relaxed mb-6 shadow-sm">
-            · 30년 경력을 자랑하는 압구정의원에서는{" "}
-            <b>특별 혜택 프로모션 가격</b>으로 안내해드리고 있습니다.
-            <br />
-            · 상담 후, 개인에 맞는 스타일과 모발상태를 고려하여 안내하기에, 필요
-            모수는 달라질 수 있습니다.
-            <br />· 안내드리는 내용보다 더 많은 수술종류가 준비되어있습니다.
+          <div className="bg-green-50 border border-green-100 rounded-lg p-4 text-[12px] text-gray-700 leading-relaxed mb-6 shadow-sm whitespace-pre-line">
+            {t.benefitsSection.guideNote[language]}
           </div>
 
           {/* 가격표 */}
@@ -131,39 +123,40 @@ export default function EventPage2() {
             <table className="w-full text-center text-sm">
               <thead className="bg-green-700 text-white">
                 <tr>
-                  <th className="py-3 font-semibold">수술명</th>
-                  <th className="py-3 font-semibold">정상가</th>
-                  <th className="py-3 font-semibold">특별 이벤트</th>
+                  <th className="py-3 font-semibold">
+                    {t.benefitsSection.priceTable.headers.name[language]}
+                  </th>
+                  <th className="py-3 font-semibold">
+                    {t.benefitsSection.priceTable.headers.normal[language]}
+                  </th>
+                  <th className="py-3 font-semibold">
+                    {t.benefitsSection.priceTable.headers.special[language]}
+                  </th>
                 </tr>
               </thead>
               <tbody>
-                {[
-                  { name: "1000모", normal: "270만원", special: "195만원" },
-                  { name: "2000모", normal: "380만원", special: "258만원" },
-                  { name: "3000모", normal: "510만원", special: "상담시 안내" },
-                  { name: "커스텀", normal: "660만원", special: "상담시 안내" },
-                  {
-                    name: "비절개 모발이식 2000모",
-                    normal: "480만원",
-                    special: "상담시 안내",
-                  },
-                ].map((row, idx) => (
+                {t.benefitsSection.priceTable.rows.map((row, idx) => (
                   <tr
-                    key={row.name}
+                    key={idx}
                     className={`border-t border-gray-200 ${
                       idx % 2 === 0 ? "bg-white" : "bg-green-50"
                     }`}
                   >
-                    <td className="py-3 px-2 font-medium">{row.name}</td>
-                    <td className="py-3 px-2 text-gray-500">{row.normal}</td>
+                    <td className="py-3 px-2 font-medium">
+                      {row.name[language]}
+                    </td>
+                    <td className="py-3 px-2 text-gray-500">
+                      {row.normal[language]}
+                    </td>
                     <td
                       className={`py-3 px-2 font-bold ${
-                        row.special.includes("안내")
+                        row.special[language].includes("안내") ||
+                        row.special[language].includes("Consult")
                           ? "text-gray-700"
                           : "text-green-700"
                       }`}
                     >
-                      {row.special}
+                      {row.special[language]}
                     </td>
                   </tr>
                 ))}
@@ -174,7 +167,7 @@ export default function EventPage2() {
           {/* 상담 문의 */}
           <div className="mt-6 flex justify-center">
             <span className="bg-green-600 hover:bg-green-700 transition text-white font-semibold text-sm px-6 py-2 rounded-full shadow cursor-pointer">
-              📞 상담문의 | 이벤트 신청을 통해 담당자가 안내 도와드립니다
+              {t.benefitsSection.contactText[language]}
             </span>
           </div>
         </section>

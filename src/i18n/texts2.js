@@ -231,4 +231,195 @@ export const event2Texts = {
       en: "Request Consultation",
     },
   },
+  benefitsSection: {
+    // 혜택 리스트
+    benefits: [
+      {
+        no: "1",
+        title: {
+          ko: "헤어라인&모발 디자인 상담비용 면제",
+          zh: "免收发际线和植发设计咨询费",
+          ru: "Бесплатная консультация по дизайну линии волос и пересадке",
+          en: "Free Hairline & Hair Transplant Design Consultation",
+        },
+      },
+      {
+        no: "2",
+        title: {
+          ko: "메조 테라피 2회 제공",
+          zh: "提供2次美塑疗法",
+          ru: "2 сеанса мезотерапии",
+          en: "2 Sessions of Meso Therapy",
+        },
+      },
+      {
+        no: "3",
+        title: {
+          ko: "EGF 샴푸 제공",
+          zh: "提供EGF洗发水",
+          ru: "EGF шампунь в подарок",
+          en: "EGF Shampoo Provided",
+        },
+      },
+      {
+        no: "4",
+        title: {
+          ko: "토닉 100ML 제공",
+          zh: "提供100ML头皮滋养液",
+          ru: "Тоник для волос 100 мл в подарок",
+          en: "100ML Hair Tonic Provided",
+        },
+      },
+    ],
+
+    // 안내 문구
+    guideNote: {
+      ko: `· 30년 경력을 자랑하는 압구정의원에서는 특별 혜택 프로모션 가격으로 안내해드리고 있습니다.
+· 상담 후, 개인에 맞는 스타일과 모발상태를 고려하여, 안내하기에, 필요 모수는 달라질 수 있습니다.
+· 안내드리는 내용보다 더 많은 수술종류가 준비되어있습니다.`,
+      zh: `· 拥有30年经验的狎鸥亭医院，以特别优惠促销价格为您提供服务。
+· 咨询后将根据个人风格和毛发状况提供建议，所需毛发数量可能有所不同。
+· 除所列项目外，我们还提供更多手术类型。`,
+      ru: `· Клиника Апкучон с 30-летним опытом предлагает специальные цены по акции.
+· После консультации рекомендации даются с учетом индивидуального стиля и состояния волос, необходимое количество графтов может отличаться.
+· Доступно больше видов операций, чем указано в списке.`,
+      en: `· Apgujeong Clinic, with 30 years of experience, offers special promotional prices.
+· After consultation, recommendations will be tailored to your style and hair condition; the required graft count may vary.
+· More surgery types are available than those listed.`,
+    },
+
+    // 가격표
+    priceTable: {
+      headers: {
+        name: {
+          ko: "수술명",
+          zh: "手术名称",
+          ru: "Название операции",
+          en: "Surgery",
+        },
+        normal: {
+          ko: "정상가",
+          zh: "原价",
+          ru: "Обычная цена",
+          en: "Normal Price",
+        },
+        special: {
+          ko: "특별 이벤트",
+          zh: "特别优惠",
+          ru: "Специальное предложение",
+          en: "Special Event",
+        },
+      },
+      rows: [
+        {
+          name: {
+            ko: "1000모",
+            zh: "1000株毛发",
+            ru: "1000 графтов",
+            en: "1000 Grafts",
+          },
+          normal: {
+            ko: "270만원",
+            zh: "270万韩元",
+            ru: "2.7 млн вон",
+            en: "2.7M KRW",
+          },
+          special: {
+            ko: "195만원",
+            zh: "195万韩元",
+            ru: "1.95 млн вон",
+            en: "1.95M KRW",
+          },
+        },
+        {
+          name: {
+            ko: "2000모",
+            zh: "2000株毛发",
+            ru: "2000 графтов",
+            en: "2000 Grafts",
+          },
+          normal: {
+            ko: "380만원",
+            zh: "380万韩元",
+            ru: "3.8 млн вон",
+            en: "3.8M KRW",
+          },
+          special: {
+            ko: "258만원",
+            zh: "258万韩元",
+            ru: "2.58 млн вон",
+            en: "2.58M KRW",
+          },
+        },
+        {
+          name: {
+            ko: "3000모",
+            zh: "3000株毛发",
+            ru: "3000 графтов",
+            en: "3000 Grafts",
+          },
+          normal: {
+            ko: "510만원",
+            zh: "510万韩元",
+            ru: "5.1 млн вон",
+            en: "5.1M KRW",
+          },
+          special: {
+            ko: "상담시 안내",
+            zh: "咨询时提供",
+            ru: "По запросу",
+            en: "Consult for Price",
+          },
+        },
+        {
+          name: {
+            ko: "커스텀",
+            zh: "定制手术",
+            ru: "Индивидуально",
+            en: "Custom",
+          },
+          normal: {
+            ko: "660만원",
+            zh: "660万韩元",
+            ru: "6.6 млн вон",
+            en: "6.6M KRW",
+          },
+          special: {
+            ko: "상담시 안내",
+            zh: "咨询时提供",
+            ru: "По запросу",
+            en: "Consult for Price",
+          },
+        },
+        {
+          name: {
+            ko: "비절개 모발이식 2000모",
+            zh: "微创植发2000株",
+            ru: "Безоперационная пересадка волос 2000 графтов",
+            en: "Non-incision Hair Transplant 2000 Grafts",
+          },
+          normal: {
+            ko: "480만원",
+            zh: "480万韩元",
+            ru: "4.8 млн вон",
+            en: "4.8M KRW",
+          },
+          special: {
+            ko: "상담시 안내",
+            zh: "咨询时提供",
+            ru: "По запросу",
+            en: "Consult for Price",
+          },
+        },
+      ],
+    },
+
+    // 상담문의 텍스트
+    contactText: {
+      ko: "📞 상담문의 | 이벤트 신청을 통해 담당자가 안내 도와드립니다",
+      zh: "📞 咨询热线 | 通过活动申请，我们的专员将为您提供指导",
+      ru: "📞 Консультация | Наш специалист свяжется с вами после заявки на участие в акции",
+      en: "📞 Contact Us | Apply for the event and our staff will assist you",
+    },
+  },
 };
