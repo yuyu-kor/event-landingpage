@@ -193,7 +193,7 @@ function EventPage3() {
               ref={formRef}
               onSubmit={handleSubmit}
               method="POST"
-              action="https://script.google.com/macros/s/AKfycby_70SUUYu5zsPcK5FKNXptDKiGO-Ji4Npzo5d_Cxtez6Z9kCabhVbpB1w3zuunpCXa/exec"
+              action="https://script.google.com/macros/s/AKfycbwDSSaekiTMMh8Pa2FmOWISte0oRz8sryjPeM-ce0En5-J6QQNIQvL6PEFBw_NIRJ1d/exec"
               target="hidden_iframe"
               className="space-y-4 text-left"
             >
