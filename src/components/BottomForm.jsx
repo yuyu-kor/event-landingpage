@@ -8,6 +8,7 @@ const BottomForm = () => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [phone, setPhone] = useState("");
+  const [consultDate, setConsultDate] = useState(""); // ✅ 상담 희망일 추가
 
   const handlePhoneChange = (e) => {
     const input = e.target.value.replace(/\D/g, ""); // 숫자만
@@ -26,8 +27,9 @@ const BottomForm = () => {
     formData.append("name", name);
     formData.append("age", age);
     formData.append("phone", phone);
+    formData.append("consultDate", consultDate); // ✅ 추가됨
 
-    // 시트 이름 지정 (여기가 핵심)
+    // 시트 이름 지정
     formData.append("sheetName", "스마일라식");
 
     try {
@@ -55,6 +57,7 @@ const BottomForm = () => {
         setName("");
         setAge("");
         setPhone("");
+        setConsultDate(""); // ✅ 초기화
       } else {
         alert(texts.bottomForm.alertFailure[language]);
       }
@@ -86,11 +89,20 @@ const BottomForm = () => {
             className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:outline-none"
           />
         </div>
+
         <input
           type="tel"
           placeholder={texts.bottomForm.phonePlaceholder[language]}
           value={phone}
           onChange={handlePhoneChange}
+          className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:outline-none"
+        />
+
+        {/* ✅ 상담 희망일 추가 */}
+        <input
+          type="date"
+          value={consultDate}
+          onChange={(e) => setConsultDate(e.target.value)}
           className="w-full border border-gray-200 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-300 focus:outline-none"
         />
 
