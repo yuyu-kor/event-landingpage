@@ -4,11 +4,13 @@ export const event3Texts = {
       ko: "피부과 한정 할인 이벤트",
       zh: "皮肤科限定优惠活动",
       ru: "Эксклюзивная акция для дерматологии",
+      en: "Exclusive Dermatology Discount Event",
     },
     subtitle: {
       ko: "지금이 피부 자신감을 되찾을 기회✨",
       zh: "现在是重拾肌肤自信的机会✨",
       ru: "Самое время вернуть уверенность в своей коже✨",
+      en: "Now is your chance to regain skin confidence✨",
     },
   },
   solution: {
@@ -16,6 +18,7 @@ export const event3Texts = {
       ko: "1:1 맞춤 솔루션으로 피부 고민 해결",
       zh: "通过1:1定制方案解决肌肤烦恼",
       ru: "Индивидуальное решение для ваших проблем с кожей",
+      en: "Personalized 1:1 Solutions for Your Skin Concerns",
     },
     items: {
       ko: [
@@ -36,6 +39,12 @@ export const event3Texts = {
         "Петит (контурные уколы, филлеры, ботокс и т.п.)",
         "Эпиляция и тело (уколы Bodyfit, ONDA-лифтинг и др.)",
       ],
+      en: [
+        "Lifting (ONDA, Ulthera, Thermage, etc.)",
+        "Skin Boosters (Juvelook, Rejuran, etc.)",
+        "Petit Procedures (Contour Injections, Fillers, Botox, etc.)",
+        "Hair Removal & Body Treatments (Bodyfit Injections, ONDA Lifting, etc.)",
+      ],
     },
   },
   beforeAfter: {
@@ -43,11 +52,13 @@ export const event3Texts = {
       ko: "리얼 BEFORE & AFTER",
       zh: "真实前后对比",
       ru: "Реальные фото ДО и ПОСЛЕ",
+      en: "Real BEFORE & AFTER",
     },
     subtitle: {
       ko: "1:1 맞춤 솔루션으로 피부 고민 해결",
       zh: "通过1:1定制方案解决肌肤烦恼",
       ru: "Индивидуальное решение для вашей кожи",
+      en: "Personalized 1:1 Solutions for Your Skin Concerns",
     },
     examples: [
       {
@@ -56,11 +67,13 @@ export const event3Texts = {
           ko: "리프팅 전후 사진",
           zh: "提升前后对比",
           ru: "Фото до и после лифтинга",
+          en: "Lifting Before & After",
         },
         text: {
           ko: "“얼굴선이 또렷해지고 탄력이 생겼어요. 주변에서 살 빠졌냐고 물어봐요!”",
           zh: "“脸部线条清晰有弹性，朋友还问是不是瘦了！”",
           ru: "“Контуры лица стали четче, появилась упругость. Все спрашивают, похудела ли я!”",
+          en: "“My facial contours became sharper and firmer. People keep asking if I lost weight!”",
         },
       },
       {
@@ -69,11 +82,13 @@ export const event3Texts = {
           ko: "스킨부스터 전후 사진",
           zh: "皮肤注射前后对比",
           ru: "Фото до и после скинбустера",
+          en: "Skin Booster Before & After",
         },
         text: {
           ko: "“피부결이 눈에 띄게 달라졌어요. 종종 관리를 받아야겠어요”",
           zh: "“肤质明显改善，以后要经常保养！”",
           ru: "“Кожа стала заметно лучше. Пора регулярно ухаживать за собой!”",
+          en: "“My skin texture improved noticeably. I should get treatments regularly now.”",
         },
       },
       {
@@ -82,11 +97,13 @@ export const event3Texts = {
           ko: "쁘띠 전후 사진",
           zh: "微整前后对比",
           ru: "Фото до и после петита",
+          en: "Petit Procedures Before & After",
         },
         text: {
           ko: "“원하는 디자인으로 자연스럽게 예뻐졌다는 말 자주 들어요!”",
           zh: "“按我想要的样子变美了，朋友们都说自然漂亮！”",
           ru: "“Многие говорят, что получилось красиво и естественно — как я и хотела!”",
+          en: "“People often say I became prettier in exactly the way I wanted — naturally beautiful!”",
         },
       },
       {
@@ -95,11 +112,13 @@ export const event3Texts = {
           ko: "제모,바디 전후 사진",
           zh: "脱毛/身体管理前后对比",
           ru: "Фото до и после ухода за телом",
+          en: "Hair Removal & Body Before & After",
         },
         text: {
           ko: "“다이어트로는 한계가 있어서 처음 받아봤는데 변화가 뚜렷해서 너무 좋아요”",
           zh: "“减肥效果有限，尝试后明显变化，非常满意！”",
           ru: "“Диета не помогала, но после процедуры результат стал очевидным — я довольна!”",
+          en: "“Dieting alone wasn’t enough, but after this treatment the change is so visible — I love it!”",
         },
       },
     ],
@@ -110,38 +129,45 @@ export const event3Texts = {
         ko: "✔ 원장님 1:1 맞춤 상담 가능",
         zh: "✔ 可与院长进行1:1定制咨询",
         ru: "✔ Индивидуальная консультация с главным врачом",
+        en: "✔ 1:1 Personalized Consultation with the Director",
       },
       {
         ko: "✔ 전문 코디네이터 상담 후 시술 결정 가능",
         zh: "✔ 专业顾问指导后决定是否施术",
         ru: "✔ Возможность принятия решения после консультации с координатором",
+        en: "✔ Option to Decide After Consulting with a Specialist Coordinator",
       },
       {
         ko: "✔ 최첨단 피부 분석 검사 진행 후 시술 가능",
         zh: "✔ 进行高端肌肤分析检查后可接受治疗",
         ru: "✔ Перед процедурой проводится высокоточная диагностика кожи",
+        en: "✔ High-Tech Skin Analysis Before Treatment",
       },
     ],
     subwayAccess: {
       ko: "홍대입구역 9번 출구 도보 약 2분 거리",
       zh: "从弘大入口站9号出口步行约2分钟",
       ru: "Около 2 минут пешком от выхода 9 станции Хондэипгу",
+      en: "About 2 minutes' walk from Exit 9, Hongdae Station",
     },
     lines: {
       green: {
         ko: "2호선",
         zh: "2号线",
         ru: "Линия 2 (зелёная)",
+        en: "Line 2 (Green)",
       },
       blue: {
         ko: "공항철도",
         zh: "机场铁路",
         ru: "Аэропортовая линия",
+        en: "Airport Railroad",
       },
       pink: {
         ko: "경의중앙선",
         zh: "京义中央线",
         ru: "Линия Кёнъи-Чунан",
+        en: "Gyeongui-Jungang Line",
       },
     },
   },
@@ -150,6 +176,7 @@ export const event3Texts = {
       ko: "이벤트 신청하기",
       zh: "报名参加活动",
       ru: "Оставить заявку на участие",
+      en: "Apply for the Event",
     },
     description: {
       ko: `내 얼굴에 꼭 맞는 솔루션,
@@ -161,30 +188,33 @@ export const event3Texts = {
       ru: `Индивидуальное решение под ваше лицо.
   Анализируем контуры, текстуру кожи и общий образ —
   и предлагаем точное лечение.`,
-      alertIncomplete: {
-        ko: "이름과 연락처를 모두 입력해주세요.",
-        en: "Please fill in both name and phone number.",
-        zh: "请填写姓名和电话号码。",
-        ru: "Пожалуйста, заполните имя и номер телефона.",
-      },
-      alertSuccess: {
-        ko: "상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.",
-        en: "Your consultation request has been submitted. We will contact you soon.",
-        zh: "您的咨询申请已提交，我们会尽快与您联系。",
-        ru: "Ваша заявка на консультацию отправлена. Мы свяжемся с вами в ближайшее время.",
-      },
-      alertFailure: {
-        ko: "신청에 실패했습니다. 다시 시도해주세요.",
-        en: "Submission failed. Please try again.",
-        zh: "提交失败，请重试。",
-        ru: "Ошибка отправки. Попробуйте еще раз.",
-      },
-      alertError: {
-        ko: "오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
-        en: "An error occurred. Please try again later.",
-        zh: "发生错误，请稍后重试。",
-        ru: "Произошла ошибка. Попробуйте позже.",
-      },
+      en: `A personalized solution tailored to your face.
+  We comprehensively analyze contours, skin texture, and overall impression
+  to recommend the perfect treatment plan for you.`,
+    },
+    alertIncomplete: {
+      ko: "이름과 연락처를 모두 입력해주세요.",
+      en: "Please fill in both name and phone number.",
+      zh: "请填写姓名和电话号码。",
+      ru: "Пожалуйста, заполните имя и номер телефона.",
+    },
+    alertSuccess: {
+      ko: "상담 신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.",
+      en: "Your consultation request has been submitted. We will contact you soon.",
+      zh: "您的咨询申请已提交，我们会尽快与您联系。",
+      ru: "Ваша заявка на консультацию отправлена. Мы свяжемся с вами в ближайшее время.",
+    },
+    alertFailure: {
+      ko: "신청에 실패했습니다. 다시 시도해주세요.",
+      en: "Submission failed. Please try again.",
+      zh: "提交失败，请重试。",
+      ru: "Ошибка отправки. Попробуйте еще раз.",
+    },
+    alertError: {
+      ko: "오류가 발생했습니다. 잠시 후 다시 시도해주세요.",
+      en: "An error occurred. Please try again later.",
+      zh: "发生错误，请稍后重试。",
+      ru: "Произошла ошибка. Попробуйте позже.",
     },
     fields: {
       name: {
@@ -192,11 +222,13 @@ export const event3Texts = {
           ko: "이름",
           zh: "姓名",
           ru: "Имя",
+          en: "Name",
         },
         placeholder: {
           ko: "이름 입력",
           zh: "请输入姓名",
           ru: "Введите имя",
+          en: "Enter your name",
         },
       },
       phone: {
@@ -204,11 +236,13 @@ export const event3Texts = {
           ko: "연락처 (숫자만 입력)",
           zh: "联系电话（仅输入数字）",
           ru: "Контактный номер (только цифры)",
+          en: "Contact Number (numbers only)",
         },
         placeholder: {
           ko: "01012345678",
           zh: "01012345678",
           ru: "01012345678",
+          en: "01012345678",
         },
       },
       interest: {
@@ -216,11 +250,13 @@ export const event3Texts = {
           ko: "관심있는 진료 항목",
           zh: "感兴趣的诊疗项目",
           ru: "Интересующая процедура",
+          en: "Treatment of Interest",
         },
         placeholder: {
           ko: "예: 스킨부스터",
           zh: "例如：皮肤注射",
           ru: "Напр.: скинбустер",
+          en: "e.g., Skin Booster",
         },
       },
       date: {
@@ -228,6 +264,7 @@ export const event3Texts = {
           ko: "희망 시술 일자",
           zh: "希望施术日期",
           ru: "Желаемая дата процедуры",
+          en: "Preferred Treatment Date",
         },
       },
     },
@@ -235,6 +272,7 @@ export const event3Texts = {
       ko: "상담 신청하기",
       zh: "提交咨询申请",
       ru: "Отправить заявку",
+      en: "Request Consultation",
     },
   },
 };

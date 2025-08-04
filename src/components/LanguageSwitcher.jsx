@@ -1,3 +1,4 @@
+// LanguageSwitcher.jsx
 import { useState } from "react";
 import { useLanguageStore } from "../stores/useLanguageStore";
 
@@ -8,6 +9,7 @@ const LanguageSwitcher = () => {
 
   const LANGUAGES = [
     { code: "ko", label: "🇰🇷" },
+    { code: "en", label: "🇺🇸" },
     { code: "zh", label: "🇨🇳" },
     { code: "ru", label: "🇷🇺" },
   ];
@@ -15,7 +17,7 @@ const LanguageSwitcher = () => {
   const current = LANGUAGES.find((l) => l.code === language)?.label;
 
   return (
-    <div className="fixed top-4 right-4 z-50">
+    <div className="absolute top-2 right-2 z-50">
       <div className="relative">
         <button
           onClick={() => setOpen((prev) => !prev)}

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import EventSwitcherSegment from "../components/EventSwitcherSegment";
+import LanguageSwitcher from "../components/LanguageSwitcher"; // ✅ 언어 변경 버튼 추가
 import { Carousel } from "react-responsive-carousel";
 import { useLanguageStore } from "../stores/useLanguageStore";
 import { event3Texts } from "../i18n/texts3";
 
 function EventPage3() {
+  const formRef = useRef(null);
   const language = useLanguageStore((state) => state.language);
   const t = event3Texts;
 
@@ -21,58 +23,37 @@ function EventPage3() {
   };
 
   // ✅ 폼 전송
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault(); // 새로고침 방지
 
-    if (!name.trim() || !phone.trim()) {
+    const form = formRef.current;
+    const nameValue = form.name.value.trim();
+    const phoneValue = form.phone.value.trim();
+
+    if (!nameValue || !phoneValue) {
       alert(t.form.alertIncomplete[language]);
       return;
     }
 
-    const formData = new URLSearchParams();
-    formData.append("name", name);
-    formData.append("phone", phone);
-    formData.append("interest", interest);
-    formData.append("date", date);
-    formData.append("sheetName", "스킨케어");
+    // 신청 완료 알림 먼저
+    alert(t.form.alertSuccess[language]);
 
-    try {
-      const res = await fetch(
-        "https://script.google.com/macros/s/AKfycby_70SUUYu5zsPcK5FKNXptDKiGO-Ji4Npzo5d_Cxtez6Z9kCabhVbpB1w3zuunpCXa/exec",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: formData.toString(),
-        }
-      );
+    // 실제 전송
+    form.submit();
 
-      const text = await res.text();
-      console.log("응답 원본:", text);
-
-      if (res.ok && text.includes("success")) {
-        setName("");
-        setPhone("");
-        setInterest("");
-        setDate("");
-
-        setTimeout(() => {
-          alert(t.form.alertSuccess[language]);
-        }, 100);
-      } else {
-        alert(t.form.alertFailure[language]);
-      }
-    } catch (err) {
-      console.error("에러 발생:", err);
-      alert(t.form.alertError[language]);
-    }
+    // 입력창 초기화
+    setName("");
+    setPhone("");
+    setInterest("");
+    setDate("");
   };
 
   return (
     <div className="w-full max-w-[480px] mx-auto min-h-screen bg-gray-50 text-gray-800">
-      {/* 상단 탭 */}
       <header className="bg-white shadow-sm">
-        <div className="w-full max-w-[440px] px-4 py-8 mx-auto text-center">
+        <div className="relative w-full max-w-[440px] px-4 py-8 mx-auto text-center">
           <EventSwitcherSegment />
+          <LanguageSwitcher />
           <h1 className="mt-4 text-2xl font-bold text-pink-600 tracking-tight">
             {t.header.title[language]}
           </h1>
@@ -82,6 +63,7 @@ function EventPage3() {
         </div>
       </header>
 
+      {/* 이하 내용 동일 */}
       <main className="w-full max-w-[440px] px-4 py-12 space-y-12 mx-auto">
         {/* 맞춤 솔루션 */}
         <section>
@@ -207,7 +189,17 @@ function EventPage3() {
             <p className="text-sm text-gray-600 leading-relaxed text-balance whitespace-pre-line">
               {t.form.description[language]}
             </p>
-            <form className="space-y-4 text-left" onSubmit={handleSubmit}>
+            <form
+              ref={formRef}
+              onSubmit={handleSubmit}
+              method="POST"
+              action="https://script.google.com/macros/s/AKfycby_70SUUYu5zsPcK5FKNXptDKiGO-Ji4Npzo5d_Cxtez6Z9kCabhVbpB1w3zuunpCXa/exec"
+              target="hidden_iframe"
+              className="space-y-4 text-left"
+            >
+              {/* 구글 시트 시트 이름 전달 */}
+              <input type="hidden" name="sheetName" value="스킨케어" />
+
               {/* 이름 */}
               <div>
                 <label className="block text-sm text-gray-700 mb-1">
@@ -215,6 +207,7 @@ function EventPage3() {
                 </label>
                 <input
                   type="text"
+                  name="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder={t.form.fields.name.placeholder[language]}
@@ -229,6 +222,7 @@ function EventPage3() {
                 </label>
                 <input
                   type="tel"
+                  name="phone"
                   value={phone}
                   onChange={handlePhoneChange}
                   placeholder={t.form.fields.phone.placeholder[language]}
@@ -243,6 +237,7 @@ function EventPage3() {
                 </label>
                 <input
                   type="text"
+                  name="interest"
                   value={interest}
                   onChange={(e) => setInterest(e.target.value)}
                   placeholder={t.form.fields.interest.placeholder[language]}
@@ -257,12 +252,14 @@ function EventPage3() {
                 </label>
                 <input
                   type="date"
+                  name="consultDate"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-pink-400"
                 />
               </div>
 
+              {/* 버튼 */}
               <button
                 type="submit"
                 className="w-full py-3 mt-4 bg-pink-500 text-white font-bold rounded-lg shadow hover:bg-pink-600 transition text-base"
@@ -270,6 +267,9 @@ function EventPage3() {
                 {t.form.submitButton[language]}
               </button>
             </form>
+
+            {/* 숨김 iframe (필수) */}
+            <iframe name="hidden_iframe" style={{ display: "none" }}></iframe>
           </div>
         </section>
       </main>

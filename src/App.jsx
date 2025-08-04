@@ -8,7 +8,6 @@ import LanguageSwitcher from "./components/LanguageSwitcher";
 function App() {
   return (
     <>
-      <LanguageSwitcher />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/EventPage2" element={<EventPage2 />} />

@@ -13,10 +13,9 @@ function HomePage() {
   return (
     <div className="w-full max-w-[480px] mx-auto bg-gray-50 min-h-screen text-gray-800">
       <header className="bg-white shadow-sm">
-        <div className="w-full max-w-[440px] px-4 py-8 mx-auto text-center">
+        <div className="relative w-full max-w-[440px] px-4 py-8 mx-auto text-center">
           <EventSwitcherSegment />
           <LanguageSwitcher />
-
           <h1 className="mt-4 text-2xl font-bold text-gray-800">
             {texts.title[language]}
           </h1>

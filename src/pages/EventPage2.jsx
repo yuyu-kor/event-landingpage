@@ -3,6 +3,7 @@ import EventForm from "../components/EventForm";
 import EventSwitcherSegment from "../components/EventSwitcherSegment";
 import { event2Texts } from "../i18n/texts2";
 import { useLanguageStore } from "../stores/useLanguageStore";
+import LanguageSwitcher from "../components/LanguageSwitcher";
 
 export default function EventPage2() {
   const location = useLocation();
@@ -11,11 +12,13 @@ export default function EventPage2() {
   return (
     <div className="w-full max-w-[480px] mx-auto bg-gray-50 min-h-screen text-gray-800">
       {/* 네비게이션 */}
-      <header className="bg-white shadow px-4 py-8">
-        <EventSwitcherSegment />
 
-        <div className="text-center px-4 pb-6 mt-4">
-          <h1 className="text-2xl font-bold text-gray-800">
+      <header className="bg-white shadow-sm">
+        {/* relative + width 제한 */}
+        <div className="relative w-full max-w-[440px] px-4 py-8 mx-auto text-center">
+          <EventSwitcherSegment />
+          <LanguageSwitcher /> {/* 이제 440px 박스 기준 우측 상단에 고정 */}
+          <h1 className="mt-4 text-2xl font-bold text-gray-800">
             {event2Texts.header.title[language]}
           </h1>
           <p className="mt-2 text-gray-600">
