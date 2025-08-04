@@ -23,7 +23,7 @@ function HomePage() {
         </div>
       </header>
 
-      <main className="w-full max-w-[440px] px-4 py-12 space-y-12 mx-auto">
+      <main className="w-full max-w-[440px] px-4 py-12 pb-30 space-y-12 mx-auto">
         <section className="flex flex-col sm:flex-row justify-between gap-4">
           {[texts.highlight1[language], texts.highlight2[language]].map(
             (label, idx) => (
